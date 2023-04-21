@@ -6,20 +6,20 @@ const Navbar = () => {
       <nav>
         <ul>
           <li>
-            <Link to='/'>
+            <Link to='/my-music-app/'>
               <img src='/favicon.ico' alt='Spotify logo' width={32} height={32} />
             </Link>
           </li>
           <li>
-            <Link to='/favorite-songs'>Favoritos</Link>
+            <Link to='/my-music-app/favorite-songs'>Favoritos</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link to='/login'>Log In</Link>
+            <Link to='/my-music-app/login'>Log In</Link>
           </li>
           <li>
-            <Link to='/signup'>Sign Up</Link>
+            <Link to='/my-music-app/signup'>Sign Up</Link>
           </li>
         </ul>
       </nav>
