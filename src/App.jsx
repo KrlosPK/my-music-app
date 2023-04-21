@@ -11,10 +11,10 @@ function App () {
     <>
       <Navbar />
       <Routes>
-        <Route path='/my-music-app/' element={<Home />} />
-        <Route path='/my-music-app/favorite-songs' element={<FavoriteSongs />} />
-        <Route path='/my-music-app/login' element={<Login />} />
-        <Route path='/my-music-app/signup' element={<Signup />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/favorite-songs' element={<FavoriteSongs />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
