@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
+import { UserContextProvider } from './context/UserContext'
+
 import { Navbar } from './components/Navbar/Navbar'
 import { Home } from './components/Home/Home'
 import { Login } from './components/Login/Login'
@@ -8,7 +10,7 @@ import { NotFound } from './components/NotFound'
 
 function App () {
   return (
-    <>
+    <UserContextProvider>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -17,7 +19,7 @@ function App () {
         <Route path='/signup' element={<Signup />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-    </>
+    </UserContextProvider>
   )
 }
 

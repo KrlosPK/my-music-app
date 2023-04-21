@@ -7,7 +7,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link to='/'>
-              <img src='/favicon.ico' alt='Spotify logo' width={32} height={32} />
+              <img src='/my-music-app/favicon.ico' alt='Spotify logo' width={32} height={32} />
             </Link>
           </li>
           <li>
