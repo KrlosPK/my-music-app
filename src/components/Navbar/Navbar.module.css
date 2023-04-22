@@ -1,0 +1,56 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 1.5rem;
+}
+.navigation {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+}
+.navigation::before {
+  background-color: #393053;
+  content: '';
+  height: 100%;
+  inset: 0;
+  opacity: 0.75;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.navigation a {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+}
+.navigation a svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    bottom: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+  }
+}

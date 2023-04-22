@@ -6,7 +6,7 @@ import { Home } from './components/Home/Home'
 import { Login } from './components/Login/Login'
 import { Signup } from './components/Signup/Signup'
 import { FavoriteSongs } from './components/FavoriteSongs/FavoriteSongs'
-import { NotFound } from './components/NotFound'
+import { NotFound } from './components/NotFound/NotFound'
 
 function App () {
   return (
