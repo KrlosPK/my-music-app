@@ -5,12 +5,16 @@
 * {
   box-sizing: border-box;
   color: #ffffff;
+  font-family: system-ui;
   margin: 0;
 }
 
 body {
   background-color: #18122b;
-  font-family: system-ui;
+  overflow: hidden;
+}
+#root {
+  max-height: 100vh;
 }
 
 ul {
@@ -24,6 +28,20 @@ a:hover {
   text-decoration: underline;
 }
 
+.page {
+  height: calc(100vh - 11rem);
+  margin-left: 220px;
+  overflow: auto;
+  padding: 1rem;
+}
+.page::-webkit-scrollbar {
+  background-color: #393053;
+  width: 8px;
+}
+.page::-webkit-scrollbar-thumb {
+  background-color: #a797db;
+  border-radius: 4px;
+}
 .flex {
   align-items: center;
   display: flex;
@@ -37,4 +55,10 @@ a:hover {
 }
 .is-active svg {
   fill: #a797db;
+}
+
+@media (max-width: 768px) {
+  .page {
+    margin-left: 0;
+  }
 }

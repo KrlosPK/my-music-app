@@ -12,13 +12,15 @@ function App () {
   return (
     <UserContextProvider>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/favorite-songs' element={<FavoriteSongs />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <main className='page'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/favorite-songs' element={<FavoriteSongs />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </main>
     </UserContextProvider>
   )
 }
