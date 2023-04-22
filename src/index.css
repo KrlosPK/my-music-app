@@ -22,10 +22,14 @@ ul {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
+}
+a:active {
+  scale: 0.97;
 }
 
 .page {
