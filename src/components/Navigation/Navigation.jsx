@@ -1,8 +1,10 @@
 import { AiFillHome, AiFillHeart, AiFillGithub } from 'react-icons/ai'
-import styles from './Navbar.module.css'
+import styles from './Navigation.module.css'
 import { NavLink } from '../NavLink'
+import { Button } from '../Button/Button'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navigation = () => {
   const username = 'Carlos'
 
   return (
@@ -16,7 +18,9 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/login'>Entrar</NavLink>
+            <NavLink to='/login'>
+              <Button text='Entrar' />
+            </NavLink>
           </li>
         </ul>
         <ul className={styles.navigation}>
@@ -36,16 +40,25 @@ const Navbar = () => {
             </a>
           </li>
           <footer className={styles.footer}>
-            <h2>My music app</h2>
+            <h2>My Music App</h2>
             <p>
               Hecho en <a href='https://es.react.dev'>React 18</a>
             </p>
             <span>Por: Carlos Morales</span>
           </footer>
         </ul>
+        <section className={styles.register}>
+          <article>
+            <h3>Escucha música sin límites</h3>
+            <p>Regístrate para acceder a canciones ilimitadas y podcasts. No necesitas tarjeta de crédito.</p>
+          </article>
+          <Link to='/signup'>
+            <Button text='Regístrate gratis' isBackground />
+          </Link>
+        </section>
       </nav>
     </header>
   )
 }
 
-export { Navbar }
+export { Navigation }
