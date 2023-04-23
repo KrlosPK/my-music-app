@@ -42,7 +42,7 @@ const Navigation = () => {
           <footer className={styles.footer}>
             <h2>My Music App</h2>
             <p>
-              Hecho en <a href='https://es.react.dev'>React 18</a>
+              Hecho en <a href='https://es.react.dev' target='_blank' rel='noreferrer'>React 18</a>
             </p>
             <span>Por: Carlos Morales</span>
           </footer>
