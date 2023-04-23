@@ -4,13 +4,13 @@
 
 * {
   box-sizing: border-box;
-  color: #ffffff;
   font-family: system-ui;
   margin: 0;
 }
 
 body {
   background-color: #18122b;
+  color: #ffffff;
   overflow: hidden;
 }
 #root {
@@ -22,6 +22,7 @@ ul {
 }
 
 a {
+  color: #ffffff;
   display: inline-block;
   text-decoration: none;
 }
@@ -35,6 +36,7 @@ a:active {
 .page {
   height: calc(100vh - 11rem);
   margin-left: 220px;
+  max-width: var(--max-width);
   overflow: auto;
   padding: 1rem;
 }

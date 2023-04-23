@@ -21,16 +21,27 @@ const Navbar = () => {
         </ul>
         <ul className={styles.navigation}>
           <li>
-            <NavLink to='/'><AiFillHome /> Inicio</NavLink>
+            <NavLink to='/'>
+              <AiFillHome /> Inicio
+            </NavLink>
           </li>
           <li>
-            <NavLink to='/favorite-songs'><AiFillHeart /> Favoritos</NavLink>
+            <NavLink to='/favorite-songs'>
+              <AiFillHeart /> Favoritos
+            </NavLink>
           </li>
           <li>
             <a href='https://github.com/KrlosPK/my-music-app' target='_blank' rel='noreferrer'>
               <AiFillGithub /> Repositorio
             </a>
           </li>
+          <footer className={styles.footer}>
+            <h2>My music app</h2>
+            <p>
+              Hecho en <a href='https://es.react.dev'>React 18</a>
+            </p>
+            <span>Por: Carlos Morales</span>
+          </footer>
         </ul>
       </nav>
     </header>

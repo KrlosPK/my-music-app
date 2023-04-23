@@ -40,6 +40,10 @@
   width: 2rem;
 }
 
+.footer {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .header::before {
     background-color: #393053;
@@ -64,5 +68,29 @@
     flex-direction: row;
     font-size: 1rem;
     gap: 1rem;
+  }
+  .footer {
+    bottom: 7.5rem;
+    color: #c7c7c7;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
+  .footer h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .footer p {
+    display: flex;
+    gap: 4px;
+  }
+  .footer p a {
+    color: #09f;
+    text-decoration: underline;
+  }
+  .footer span,
+  .footer p a,
+  .footer p {
+    font-size: 14px;
   }
 }
