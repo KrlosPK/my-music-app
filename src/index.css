@@ -1,5 +1,5 @@
 :root {
-  --max-width: 1200px;
+  --max-width: 1800px;
 }
 
 * {
@@ -34,11 +34,11 @@ a:active {
 }
 
 .page {
-  height: calc(100vh - 12rem);
+  height: calc(100vh - 96px - 69px);
   margin-left: 220px;
   max-width: var(--max-width);
   overflow: auto;
-  padding: 1rem;
+  padding: 1.3rem;
 }
 .page::-webkit-scrollbar {
   background-color: #393053;
@@ -63,6 +63,11 @@ a:active {
   fill: #a797db;
 }
 
+@media (max-width: 890px) {
+  .page {
+    height: calc(100vh - 96px - 87px);
+  }
+}
 @media (max-width: 768px) {
   .page {
     margin-left: 0;
