@@ -17,9 +17,12 @@ const Navigation = () => {
               {username}
             </NavLink>
           </li>
-          <li>
+          <li className='flex'>
+            <NavLink to='/signup'>
+              <Button text='Registrarse' />
+            </NavLink>
             <NavLink to='/login'>
-              <Button text='Entrar' />
+              <Button text='Entrar' isBackground />
             </NavLink>
           </li>
         </ul>
@@ -53,7 +56,7 @@ const Navigation = () => {
             <p>Regístrate para acceder a canciones ilimitadas y podcasts. No necesitas tarjeta de crédito.</p>
           </article>
           <Link to='/signup'>
-            <Button text='Regístrate gratis' isBackground />
+            <Button text='Regístrate ahora' isBackground />
           </Link>
         </section>
       </nav>
