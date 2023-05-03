@@ -1,0 +1,22 @@
+.card {
+  background-color: #181818;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  position: relative;
+  width: 180px;
+}
+.card:hover {
+  background-color: #282828;
+}
+
+.heartButton {
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

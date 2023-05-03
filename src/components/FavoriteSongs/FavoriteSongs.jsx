@@ -1,5 +1,5 @@
 const FavoriteSongs = () => {
-  return <div>FavoriteSongs</div>
+  return <section>FavoriteSongs</section>
 }
 
 export { FavoriteSongs }
