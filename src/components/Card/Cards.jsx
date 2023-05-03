@@ -19,11 +19,11 @@ const Cards = () => {
     <>
       {cardData &&
         cardData.map((card) => (
-          <div className={styles.card} key={card.id}>
+          <div className={styles.cards} key={card.id}>
             <img src={cardImage} alt={card.title} />
-            <div>
+            <div className={styles.text}>
               <h3>{card.title}</h3>
-              <p>{card.description}</p>
+              <p>{card.body}</p>
             </div>
             <button className={styles.heartButton}>♥</button>
           </div>

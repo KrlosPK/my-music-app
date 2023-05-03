@@ -70,6 +70,7 @@ a:active {
 }
 @media (max-width: 768px) {
   .page {
+    height: calc(100vh - 96px - 96px);
     margin-left: 0;
   }
 }

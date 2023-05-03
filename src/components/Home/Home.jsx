@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <section className={styles.home}>
       <h2 className={styles.title}>Canciones Top</h2>
-      <article className={styles.cards}>
+      <article className={styles.cardsContainer}>
         <Cards />
       </article>
     </section>
