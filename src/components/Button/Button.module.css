@@ -1,4 +1,4 @@
-button {
+.button {
   background-color: transparent;
   border: none;
   border-radius: 50px;
@@ -10,11 +10,11 @@ button {
   user-select: none;
   width: max-content;
 }
-button:hover {
+.button:hover {
   scale: 1.035;
 }
 
-button.bg {
+.button.bg {
   background-color: #ffffff;
   color: #000000;
 }
