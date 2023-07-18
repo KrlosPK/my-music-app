@@ -18,6 +18,7 @@ Aplicar y asimilar conceptos de:
 - Pruebas unitarias\*
 
 ## Descripción general
+
 Desarrollo de una web responsive que consuma la [API de Spotify](https://developer.spotify.com/documentation/web-api), para traer una lista de canciones. Un usuario, luego de registrarse y loguearse, podrá ver la lista de canciones y podrá agregar las que más le gusten a sus favoritos.
 
 ## Inventario del sitio
