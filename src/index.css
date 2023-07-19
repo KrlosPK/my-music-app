@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #18122b;
+  background-color: #121212;
   color: #ffffff;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@ a {
   display: inline-block;
   text-decoration: none;
 }
-a:hover {
+a:not(.login):hover {
   text-decoration: underline;
 }
 a:active {
