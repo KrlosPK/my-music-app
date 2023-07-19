@@ -1,10 +1,10 @@
 import styles from './Button.module.css'
 
-const Button = ({ text, isBackground }) => {
+const Button = ({ text, isBackground, href, handleClick }) => {
   return (
-    <button tabIndex={-1} className={`${styles.button} ${isBackground && styles.bg}`}>
+    <a onClick={handleClick} href={href} className={`login ${styles.button} ${isBackground && styles.bg}`}>
       {text}
-    </button>
+    </a>
   )
 }
 
