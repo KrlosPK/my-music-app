@@ -1,27 +1,27 @@
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+
 import { UserContextProvider } from './context/UserContext'
 
-import { Navigation } from './components/Navigation/Navigation'
-import { Home } from './components/Home/Home'
-import { Login } from './components/Login/Login'
-import { Signup } from './components/Signup/Signup'
 import { FavoriteSongs } from './components/FavoriteSongs/FavoriteSongs'
+import { Home } from './components/Home/Home'
+import { Navigation } from './components/Navigation/Navigation'
 import { NotFound } from './components/NotFound/NotFound'
 
 function App () {
   return (
-    <UserContextProvider>
-      <Navigation />
-      <main className='page'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/favorite-songs' element={<FavoriteSongs />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </main>
-    </UserContextProvider>
+    <React.StrictMode>
+      <UserContextProvider>
+        <Navigation />
+        <main className='page'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/favorite-songs' element={<FavoriteSongs />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+      </UserContextProvider>
+    </React.StrictMode>
   )
 }
 
