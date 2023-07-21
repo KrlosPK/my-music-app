@@ -1,13 +1,11 @@
 {
-  "homepage": "https://krlospk.github.io/my-music-app/",
   "name": "my-music-app",
   "private": true,
-  "version": "0.4.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview"
   },

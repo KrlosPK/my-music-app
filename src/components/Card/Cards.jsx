@@ -6,7 +6,7 @@ import { VITE_LIKED_SONGS_TOKEN, VITE_SPOTIFY_BASE_URL } from '../../../config'
 import tracks from '../../jsons/tracks.json'
 import styles from './Cards.module.css'
 
-const Cards = () => {
+const Cards = ({ isFavoriteTracks = false }) => {
   const { token } = useContext(UserContext)
   const [tracksData, setTracksData] = useState([])
 
@@ -59,50 +59,58 @@ const Cards = () => {
     getCardData()
   }, [token])
 
+  // const favoriteTracks = tracksData.filter((track) => track.is_liked)
+
+  // if (favoriteTracks.length === 0 && isFavoriteTracks) {
+  //   return <p className={styles.noFavoriteSongs}>Añade canciones a tus favoritos.</p>
+  // }
+  const filteredTracksData = isFavoriteTracks
+    ? tracksData.filter((track) => track.is_liked)
+    : tracksData
+
+  if (filteredTracksData.length === 0 && isFavoriteTracks) {
+    return <p className={styles.noFavoriteSongs}>Añade canciones a tus favoritos.</p>
+  }
+
   return (
     <>
-      {tracksData &&
-        tracksData.map((track) => (
-          <div className={styles.cards} key={track.id}>
-            <img src={track.album.images[0].url} alt={track.title} />
-
-            <div className={styles.text}>
-              <h3>{track.name}</h3>
-
-              <p>
-                {addLeadingZero(Math.floor(track.duration_ms / 60000))}:
-                {addLeadingZero(Math.floor((track.duration_ms / 1000) % 60))}
-              </p>
-
-              <p>{track.artists[0].name}</p>
-            </div>
-            <a className={`spotify-link ${styles.spotifyLink}`} href={track.uri}>
-              Escuchar en Spotify
-            </a>
-
-            {!track.is_liked
-              ? (
-                <button
-                  className={styles.heartButton}
-                  onClick={() => likeSong(track.id, true)}
-                  title='Like button'
-                  type='button'
-                >
-                  <Heart />
-                </button>
-                )
-              : (
-                <button
-                  className={styles.filledHeartButton}
-                  onClick={() => likeSong(track.id, false)}
-                  title='Like button'
-                  type='button'
-                >
-                  <FilledHeart />
-                </button>
-                )}
+      {filteredTracksData.map((track) => (
+        <div className={styles.cards} key={track.id}>
+          <img src={track.album.images[0].url} alt={track.title} />
+          <div className={styles.text}>
+            <h3>{track.name}</h3>
+            <p>
+              {addLeadingZero(Math.floor(track.duration_ms / 60000))}:
+              {addLeadingZero(Math.floor((track.duration_ms / 1000) % 60))}
+            </p>
+            <p>{track.artists[0].name}</p>
           </div>
-        ))}
+          <a className={`spotify-link ${styles.spotifyLink}`} href={track.uri}>
+            Escuchar en Spotify
+          </a>
+          {!track.is_liked
+            ? (
+              <button
+                className={styles.heartButton}
+                onClick={() => likeSong(track.id, true)}
+                title='Like button'
+                type='button'
+              >
+                <Heart />
+              </button>
+              )
+            : (
+              <button
+                className={styles.filledHeartButton}
+                onClick={() => likeSong(track.id, false)}
+                title='Like button'
+                type='button'
+              >
+                <FilledHeart />
+              </button>
+              )}
+        </div>
+      ))}
     </>
   )
 }

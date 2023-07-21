@@ -42,11 +42,11 @@ a:active {
   padding: 1.3rem;
 }
 .page::-webkit-scrollbar {
-  background-color: #393053;
+  background-color: #231942;
   width: 8px;
 }
 .page::-webkit-scrollbar-thumb {
-  background-color: #a797db;
+  background-color: #7b60d4;
   border-radius: 4px;
 }
 .flex {
