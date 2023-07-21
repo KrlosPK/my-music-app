@@ -1,8 +1,6 @@
 .cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 1rem;
-  justify-content: center;
 }
 .title {
   font-size: 1.5rem;
@@ -11,6 +9,7 @@
 
 @media (min-width: 768px) {
   .cardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
     gap: 2.5rem;
   }
 }

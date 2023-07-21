@@ -25,9 +25,7 @@ const Navigation = () => {
     const hash = window.location.hash
     let token = window.localStorage.getItem('__my_music_app_token__')
 
-    console.log(!token && hash)
-
-    if (!token && hash) {
+    if (hash) {
       token = hash
         .substring(1)
         .split('&')
@@ -101,7 +99,7 @@ const Navigation = () => {
               <article>
                 <h3>Escucha música sin límites</h3>
                 <p>
-                  Regístrate para acceder a canciones ilimitadas y podcasts. No necesitas tarjeta de
+                  Regístrate para acceder a canciones ilimitadas. No necesitas tarjeta de
                   crédito.
                 </p>
               </article>

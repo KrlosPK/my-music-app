@@ -43,12 +43,22 @@ const Cards = () => {
 
             {!likedSong
               ? (
-                <button onClick={likeSong} className={styles.heartButton}>
+                <button
+                  className={styles.heartButton}
+                  onClick={likeSong}
+                  title='Like button'
+                  type='button'
+                >
                   <Heart />
                 </button>
                 )
               : (
-                <button onClick={likeSong} className={styles.filledHeartButton}>
+                <button
+                  className={styles.filledHeartButton}
+                  onClick={likeSong}
+                  title='Like button'
+                  type='button'
+                >
                   <FilledHeart />
                 </button>
                 )}
