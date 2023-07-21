@@ -16,6 +16,7 @@
   padding: 1.5rem;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 .navigation::before {
   background-color: #231942;
@@ -45,6 +46,7 @@
 }
 .register {
   display: none;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
