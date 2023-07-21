@@ -46,7 +46,7 @@ const Navigation = () => {
         <ul className={styles.header}>
           <li>
             <NavLink to='/' className='flex gap'>
-              <img src='/favicon.ico' alt='Spotify logo' width={48} height={48} />
+              <img src='/favicon.svg' alt='Spotify logo' width={48} height={48} />
               {username}
             </NavLink>
           </li>
