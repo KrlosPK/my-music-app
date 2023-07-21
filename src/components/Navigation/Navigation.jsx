@@ -3,21 +3,21 @@ import { useContext, useEffect } from 'react'
 
 import { Button } from '../Button/Button'
 import { NavLink } from '../NavLink'
-import styles from './Navigation.module.css'
-
 import { UserContext } from '../../context/UserContext'
+import { VITE_SPOTIFY_TOKEN } from '../../../config'
+import styles from './Navigation.module.css'
 
 const Navigation = () => {
   const { setToken } = useContext(UserContext)
 
   const logout = () => {
-    window.localStorage.removeItem('__my_music_app_token__')
+    window.localStorage.removeItem(VITE_SPOTIFY_TOKEN)
     setToken('')
   }
 
   const useToken = () => {
     const hash = window.location.hash
-    let token = window.localStorage.getItem('__my_music_app_token__')
+    let token = window.localStorage.getItem(VITE_SPOTIFY_TOKEN)
 
     if (!token && hash) {
       token = hash
@@ -28,7 +28,7 @@ const Navigation = () => {
 
       window.location.hash = ''
 
-      window.localStorage.setItem('__my_music_app_token__', token)
+      window.localStorage.setItem(VITE_SPOTIFY_TOKEN, token)
     }
 
     setToken(token)

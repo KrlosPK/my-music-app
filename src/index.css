@@ -27,7 +27,7 @@ a {
   display: inline-block;
   text-decoration: none;
 }
-a:not(.login):hover {
+a:not(.login, .spotify-link):hover {
   text-decoration: underline;
 }
 a:active {

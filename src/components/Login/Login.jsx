@@ -3,7 +3,8 @@ import {
   VITE_CLIENT_ID,
   VITE_REDIRECT_URI,
   VITE_RESPONSE_TYPE,
-  VITE_SPOTIFY_AUTH
+  VITE_SPOTIFY_AUTH,
+  VITE_SPOTIFY_TOKEN
 } from '../../../config'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext'
@@ -16,7 +17,7 @@ const Login = () => {
 
   const useToken = () => {
     const { hash } = window.location
-    let token = window.localStorage.getItem('__my_music_app_token__')
+    let token = window.localStorage.getItem(VITE_SPOTIFY_TOKEN)
 
     if (!token && hash) {
       token = hash
@@ -27,7 +28,7 @@ const Login = () => {
 
       window.location.hash = ''
 
-      window.localStorage.setItem('__my_music_app_token__', token)
+      window.localStorage.setItem(VITE_SPOTIFY_TOKEN, token)
     }
 
     setToken(token)
