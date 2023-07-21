@@ -1,10 +1,17 @@
 import { createContext, useState } from 'react'
 
-const UserContextProvider = ({ children }) => {
-  const Context = createContext()
-  const [jwt, setJwt] = useState([])
+const UserContext = createContext({})
 
-  return <Context.Provider value={{ jwt, setJwt }}>{children}</Context.Provider>
+export const UserContextProvider = ({ children }) => {
+  const localStorageToken = window.localStorage.getItem('__my_music_app_token__')
+
+  const [token, setToken] = useState(localStorageToken || '')
+
+  return (
+    <UserContext.Provider value={{ token, setToken }}>
+      {children}
+    </UserContext.Provider>
+  )
 }
 
-export { UserContextProvider }
+export { UserContext }

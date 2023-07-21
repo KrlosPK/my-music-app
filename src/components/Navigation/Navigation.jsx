@@ -1,43 +1,41 @@
 import { AiFillHome, AiFillHeart, AiFillGithub } from 'react-icons/ai'
-import styles from './Navigation.module.css'
-import { NavLink } from '../NavLink'
+import { useContext, useEffect } from 'react'
+
 import { Button } from '../Button/Button'
-import {
-  VITE_CLIENT_ID,
-  VITE_REDIRECT_URI,
-  VITE_RESPONSE_TYPE,
-  VITE_SPOTIFY_AUTH
-} from '../../../config'
-import { useState, useEffect } from 'react'
+import { NavLink } from '../NavLink'
+import styles from './Navigation.module.css'
+
+import { UserContext } from '../../context/UserContext'
 
 const Navigation = () => {
-  const [spotifyToken, setSpotifyToken] = useState('')
-
-  const username = 'Carlos'
-  const loginURL = `${VITE_SPOTIFY_AUTH}?client_id=${VITE_CLIENT_ID}&response_type=${VITE_RESPONSE_TYPE}&redirect_uri=${VITE_REDIRECT_URI}`
+  const { setToken } = useContext(UserContext)
 
   const logout = () => {
     window.localStorage.removeItem('__my_music_app_token__')
-    setSpotifyToken('')
+    setToken('')
   }
 
-  useEffect(() => {
+  const useToken = () => {
     const hash = window.location.hash
     let token = window.localStorage.getItem('__my_music_app_token__')
 
-    if (hash) {
+    if (!token && hash) {
       token = hash
         .substring(1)
         .split('&')
         .find((el) => el.startsWith('access_token'))
         .split('=')[1]
 
-      setSpotifyToken(token)
-
       window.location.hash = ''
 
       window.localStorage.setItem('__my_music_app_token__', token)
     }
+
+    setToken(token)
+  }
+
+  useEffect(() => {
+    useToken()
   }, [])
 
   return (
@@ -47,20 +45,12 @@ const Navigation = () => {
           <li>
             <NavLink to='/' className='flex gap'>
               <img src='/favicon.svg' alt='Spotify logo' width={48} height={48} />
-              {username}
+              Carlos
             </NavLink>
           </li>
-          {!spotifyToken && (
-            <li className='flex'>
-              <Button href={loginURL} text='Entrar' isBackground />
-            </li>
-          )}
-
-          {spotifyToken && (
-            <li className='flex'>
-              <Button handleClick={logout} text='Cerrar Sesión' isBackground />
-            </li>
-          )}
+          <li className='flex'>
+            <Button handleClick={logout} text='Cerrar Sesión' isBackground />
+          </li>
         </ul>
 
         <ul className={styles.navigation}>
@@ -93,27 +83,12 @@ const Navigation = () => {
           </footer>
         </ul>
 
-        {!spotifyToken
-          ? (
-            <section className={styles.register}>
-              <article>
-                <h3>Escucha música sin límites</h3>
-                <p>
-                  Regístrate para acceder a canciones ilimitadas. No necesitas tarjeta de
-                  crédito.
-                </p>
-              </article>
-              <Button href={loginURL} text='Únete ahora' isBackground />
-            </section>
-            )
-          : (
-            <section className={styles.register}>
-              <article>
-                <h3>Escucha música sin límites</h3>
-                <p>Selecciona tus canciones favoritas y podrás reproducirlas en cualquier momento.</p>
-              </article>
-            </section>
-            )}
+        <section className={styles.register}>
+          <article>
+            <h3>Escucha música sin límites</h3>
+            <p>Selecciona tus canciones favoritas y podrás reproducirlas en cualquier momento.</p>
+          </article>
+        </section>
       </nav>
     </header>
   )
