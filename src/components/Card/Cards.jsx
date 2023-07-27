@@ -2,12 +2,12 @@ import { useEffect, useState, useContext } from 'react'
 
 import { FilledHeart, Heart } from '../Icons'
 import { UserContext } from '../../context/UserContext'
-import { VITE_LIKED_SONGS_TOKEN, VITE_SPOTIFY_BASE_URL } from '../../../config'
+import { VITE_LIKED_SONGS_TOKEN, VITE_SPOTIFY_BASE_URL, VITE_SPOTIFY_TOKEN } from '../../../config'
 import tracks from '../../jsons/tracks.json'
 import styles from './Cards.module.css'
 
 const Cards = ({ isFavoriteTracks = false }) => {
-  const { token } = useContext(UserContext)
+  const { token, setToken } = useContext(UserContext)
   const [tracksData, setTracksData] = useState([])
 
   const getCardData = async () => {
@@ -39,6 +39,10 @@ const Cards = ({ isFavoriteTracks = false }) => {
         const newTracks = tracks.map((track) => ({ ...track, is_liked: false }))
         setTracksData(newTracks)
       })
+      .catch(() => {
+        setToken('')
+        window.localStorage.removeItem(VITE_SPOTIFY_TOKEN)
+      })
   }
 
   const likeSong = (trackId, isLiked) => {
@@ -49,8 +53,8 @@ const Cards = ({ isFavoriteTracks = false }) => {
       return track
     })
 
-    window.localStorage.setItem(VITE_LIKED_SONGS_TOKEN, JSON.stringify(newTracks))
     setTracksData(newTracks)
+    window.localStorage.setItem(VITE_LIKED_SONGS_TOKEN, JSON.stringify(newTracks))
   }
 
   const addLeadingZero = (value) => (value < 10 ? `0${value}` : value)
@@ -72,17 +76,22 @@ const Cards = ({ isFavoriteTracks = false }) => {
       {filteredTracksData.map((track) => (
         <div className={styles.cards} key={track.id}>
           <img src={track.album.images[0].url} alt={track.title} />
+
           <div className={styles.text}>
             <h3>{track.name}</h3>
+
             <p>
               {addLeadingZero(Math.floor(track.duration_ms / 60000))}:
               {addLeadingZero(Math.floor((track.duration_ms / 1000) % 60))}
             </p>
+
             <p>{track.artists[0].name}</p>
           </div>
+
           <a className={`spotify-link ${styles.spotifyLink}`} href={track.uri}>
             Escuchar en Spotify
           </a>
+
           {!track.is_liked
             ? (
               <button
