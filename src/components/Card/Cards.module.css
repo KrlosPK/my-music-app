@@ -67,6 +67,7 @@
 
 .noFavoriteSongs {
   font-size: 1.1rem;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {

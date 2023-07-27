@@ -59,11 +59,6 @@ const Cards = ({ isFavoriteTracks = false }) => {
     getCardData()
   }, [token])
 
-  // const favoriteTracks = tracksData.filter((track) => track.is_liked)
-
-  // if (favoriteTracks.length === 0 && isFavoriteTracks) {
-  //   return <p className={styles.noFavoriteSongs}>Añade canciones a tus favoritos.</p>
-  // }
   const filteredTracksData = isFavoriteTracks
     ? tracksData.filter((track) => track.is_liked)
     : tracksData
