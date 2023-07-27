@@ -45,7 +45,7 @@ const Navigation = () => {
           <li>
             <NavLink to='/' className='flex gap'>
               <img src='/favicon.svg' alt='Spotify logo' width={48} height={48} />
-              Carlos
+              Playlist Genius
             </NavLink>
           </li>
           <li className='flex'>
